@@ -15,6 +15,8 @@ var stage =
 	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
+var size = 32;
+
 $(window).keyup(function(event)
 {
 	if(event.keyCode == 39)
@@ -36,8 +38,8 @@ $(window).keyup(function(event)
 			{
 				$screen.drawRect(
 				{
-					x: x*32, y: y*32,
-					width: 32, height: 32,
+					x: x*size, y: y*size,
+					width: size, height: size,
 					fillStyle: "#000",
 					fromCenter:false
 				});
@@ -46,9 +48,9 @@ $(window).keyup(function(event)
 	}
 	$screen.drawRect(
 	{
-		x: ninja.position.x*32,
-		y: 352-32-32,
-		width: 32, height: 32,
+		x: ninja.position.x*size,
+		y: 352-size-size,
+		width: size, height: size,
 		fillStyle: "green",
 		fromCenter:false
 	});
