@@ -1,4 +1,33 @@
-var ninja = { position: {x: 0} }
+var ninja =
+{
+	position:
+	{
+		x: 7,
+		y: 3
+	},
+	moveLeft: function()
+	{
+		this.position.x--;
+	},
+	moveRight: function()
+	{
+		this.position.x++;
+	},
+	handleGravity: function()
+	{
+		if(this.position.y+1 < stage.length)
+		{
+			if(stage[this.position.y+1][this.position.x] === 0)
+			{
+				this.position.y++;
+			}
+		}
+		else
+		{
+			alert("Game Over!");
+		}
+	}
+}
 
 var stage = 
 [
@@ -21,11 +50,18 @@ $(window).keyup(function(event)
 {
 	if(event.keyCode == 39)
 	{
-		ninja.position.x++;
+		ninja.moveRight();
 	}
 	else if(event.keyCode == 37)
 	{
-		ninja.position.x--;
+		ninja.moveLeft();
+	}
+	
+	if(event.keyCode == 39
+	|| event.keyCode == 37
+	|| event.keyCode == 40)
+	{
+		ninja.handleGravity();
 	}
 	
 	$screen = $("canvas#screen");
@@ -49,7 +85,7 @@ $(window).keyup(function(event)
 	$screen.drawRect(
 	{
 		x: ninja.position.x*size,
-		y: 352-size-size,
+		y: ninja.position.y*size,
 		width: size, height: size,
 		fillStyle: "green",
 		fromCenter:false
