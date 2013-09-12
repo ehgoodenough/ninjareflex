@@ -1,6 +1,6 @@
 var ninja = { position: {x: 0} }
 
-window.addEventListener("keyup", function(event)
+$(window).keyup(function(event)
 {
 	if(event.keyCode == 39)
 	{
@@ -20,4 +20,4 @@ window.addEventListener("keyup", function(event)
 		fillStyle: "green",
 		fromCenter:false
 	});
-}, false);
+});
