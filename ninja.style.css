@@ -1,13 +1,20 @@
 body
 {
 margin:0px;
-padding:32px;
+}
+
+h1
+{
+margin:32px;
+font-size:64px;
+text-align:center;
+font-family:Calibri;
 }
 
 canvas#screen
 {
 display:block;
-margin:0px auto;
+margin:32px auto;
 border-width:2px;
 border-color:#000;
 border-style:solid;
