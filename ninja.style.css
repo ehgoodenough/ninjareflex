@@ -1,0 +1,15 @@
+body
+{
+margin:0px;
+padding:32px;
+}
+
+canvas#screen
+{
+display:block;
+margin:0px auto;
+border-width:2px;
+border-color:#000;
+border-style:solid;
+background-color:#EEE;
+}
