@@ -1,9 +1,21 @@
+var ninja = { position: {x: 0} }
+
 window.addEventListener("keyup", function(event)
 {
-	$("canvas#screen").drawRect(
+	if(event.keyCode == 39)
 	{
-		x: Math.random()*(480-32),
-		y: Math.random()*(360-32),
+		ninja.position.x++;
+	}
+	else if(event.keyCode == 37)
+	{
+		ninja.position.x--;
+	}
+	
+	$screen = $("canvas#screen");
+	$screen.clearCanvas();
+	$screen.drawRect(
+	{
+		x: ninja.position.x*32, y: 360-32,
 		width: 32, height: 32,
 		fillStyle: "green",
 		fromCenter:false
