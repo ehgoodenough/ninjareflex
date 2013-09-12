@@ -13,6 +13,10 @@ var ninja =
 	{
 		this.position.x++;
 	},
+	moveUp: function()
+	{
+		this.position.y--;
+	},
 	handleGravity: function()
 	{
 		if(this.position.y+1 < stage.length)
@@ -20,13 +24,19 @@ var ninja =
 			if(stage[this.position.y+1][this.position.x] === 0)
 			{
 				this.position.y++;
+				
+				if(stage[this.position.y+1][this.position.x] == 1)
+				{
+					this.jump = 3;
+				}
 			}
 		}
 		else
 		{
 			alert("Game Over!");
 		}
-	}
+	},
+	jump: 3
 }
 
 var stage = 
@@ -62,6 +72,15 @@ $(window).keyup(function(event)
 	|| event.keyCode == 40)
 	{
 		ninja.handleGravity();
+	}
+	
+	if(event.keyCode == 38)
+	{
+		if(ninja.jump > 0)
+		{
+			ninja.moveUp();
+			ninja.jump--;
+		}
 	}
 	
 	$screen = $("canvas#screen");
