@@ -19,22 +19,20 @@ var ninja =
 	},
 	handleGravity: function()
 	{
-		if(this.position.y+1 < stage.length)
+		if(!this.hasDownwardsCollision())
 		{
-			if(stage[this.position.y+1][this.position.x] === 0)
+			this.position.y++;
+			
+			if(this.hasDownwardsCollision())
 			{
-				this.position.y++;
-				
-				if(stage[this.position.y+1][this.position.x] == 1)
-				{
-					this.jump = 3;
-				}
+				this.jump = 3;
 			}
 		}
-		else
-		{
-			alert("Game Over!");
-		}
+	},
+	hasDownwardsCollision: function()
+	{
+		return !(this.position.y+1 < stage.length
+		&& !stage[this.position.y+1][this.position.x])
 	},
 	jump: 3
 }
