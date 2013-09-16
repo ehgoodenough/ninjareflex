@@ -7,15 +7,24 @@ var ninja =
 	},
 	moveLeft: function()
 	{
-		this.position.x--;
+		if(!this.hasLeftwardsCollision())
+		{
+			this.position.x--;
+		}
 	},
 	moveRight: function()
 	{
-		this.position.x++;
+		if(!this.hasRightwardsCollision())
+		{
+			this.position.x++;
+		}
 	},
 	moveUp: function()
 	{
-		this.position.y--;
+		if(!this.hasUpwardsCollision())
+		{
+			this.position.y--;
+		}
 	},
 	moveDown: function()
 	{
@@ -28,6 +37,21 @@ var ninja =
 	{
 		return !(this.position.y+1 < stage.length
 		&& !stage[this.position.y+1][this.position.x])
+	},
+	hasUpwardsCollision: function()
+	{
+		return !(this.position.y-1 >= 0
+		&& !stage[this.position.y-1][this.position.x])
+	},
+	hasRightwardsCollision: function()
+	{
+		return !(this.position.x+1 < stage[0].length
+		&& !stage[this.position.y][this.position.x+1])
+	},
+	hasLeftwardsCollision: function()
+	{
+		return !(this.position.x-1 >= 0
+		&& !stage[this.position.y][this.position.x-1])
 	},
 	jump: 3
 }
