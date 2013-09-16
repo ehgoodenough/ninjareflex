@@ -22,11 +22,6 @@ var ninja =
 		if(!this.hasDownwardsCollision())
 		{
 			this.position.y++;
-			
-			if(this.hasDownwardsCollision())
-			{
-				this.jump = 3;
-			}
 		}
 	},
 	hasDownwardsCollision: function()
@@ -81,6 +76,11 @@ $(window).keyup(function(event)
 		{
 			ninja.moveDown();
 		}
+	}
+	
+	if(ninja.hasDownwardsCollision())
+	{
+		ninja.jump = 3;
 	}
 	
 	$screen = $("canvas#screen");
