@@ -75,22 +75,52 @@ var size = 32;
 
 $(window).keyup(function(event)
 {
-	if(event.keyCode == 39)
+	if(event.keyCode == 68
+	|| event.keyCode == 39)
 	{
 		ninja.moveRight();
 		ninja.moveDown();
 	}
-	else if(event.keyCode == 37)
+	else if(event.keyCode == 65
+	|| event.keyCode == 37)
 	{
 		ninja.moveLeft();
 		ninja.moveDown();
 	}
-	else if(event.keyCode == 40)
+	else if(event.keyCode == 83
+	|| event.keyCode == 40)
 	{
 		ninja.moveDown();
 	}
-	else if(event.keyCode == 38)
+	else if(event.keyCode == 87
+	|| event.keyCode == 38)
 	{
+		if(ninja.jump > 0)
+		{
+			ninja.moveUp();
+			ninja.jump--;
+		}
+		else
+		{
+			ninja.moveDown();
+		}
+	}
+	else if(event.keyCode == 69)
+	{
+		ninja.moveRight();
+		if(ninja.jump > 0)
+		{
+			ninja.moveUp();
+			ninja.jump--;
+		}
+		else
+		{
+			ninja.moveDown();
+		}
+	}
+	else if(event.keyCode == 81)
+	{
+		ninja.moveLeft();
 		if(ninja.jump > 0)
 		{
 			ninja.moveUp();
