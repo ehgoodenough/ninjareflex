@@ -80,8 +80,34 @@ var entity =
 	},
 	move: function()
 	{
-		this.position.x--;
-	}
+		if(this.direction == "left")
+		{
+			this.position.x--;
+			if(this.hasLeftwardsCollision())
+			{
+				this.direction = "right"
+			}
+		}
+		else if(this.direction == "right")
+		{
+			this.position.x++;
+			if(this.hasRightwardsCollision())
+			{
+				this.direction = "left"
+			}
+		}
+	},
+	hasRightwardsCollision: function()
+	{
+		if(this.position.x+1 >= stage[0].length) {return false;}
+		return stage[this.position.y][this.position.x+1];
+	},
+	hasLeftwardsCollision: function()
+	{
+		if(this.position.x-1 < 0) {return true;}
+		return stage[this.position.y][this.position.x-1];
+	},
+	direction: "left"
 }
 
 var size = 32;
