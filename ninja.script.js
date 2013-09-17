@@ -77,6 +77,10 @@ var entity =
 	{
 		x: 6,
 		y: 9
+	},
+	move: function()
+	{
+		this.position.x--;
 	}
 }
 
@@ -155,6 +159,8 @@ $(window).keyup(function(event)
 	{
 		ninja.jump = 3;
 	}
+	
+	entity.move();
 	
 	$screen = $("canvas#screen");
 	$screen.clearCanvas();
