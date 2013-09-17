@@ -73,6 +73,16 @@ var stage =
 
 var size = 32;
 
+var SCREEN_WIDTH = 16;
+var SCREEN_HEIGHT = 11;
+
+$(window).load(function()
+{
+	$screen = $("canvas#screen")[0];
+	$screen.width = size * SCREEN_WIDTH;
+	$screen.height = size * SCREEN_HEIGHT;
+});
+
 $(window).keyup(function(event)
 {
 	if(event.keyCode == 68
