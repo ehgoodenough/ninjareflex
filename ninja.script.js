@@ -71,6 +71,15 @@ var stage =
 	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
+var entity =
+{
+	position:
+	{
+		x: 6,
+		y: 9
+	}
+}
+
 var size = 32;
 
 var SCREEN_WIDTH = 16;
@@ -171,6 +180,14 @@ $(window).keyup(function(event)
 		y: ninja.position.y*size,
 		width: size, height: size,
 		fillStyle: "green",
+		fromCenter:false
+	});
+	$screen.drawRect(
+	{
+		x: entity.position.x*size,
+		y: entity.position.y*size,
+		width: size, height: size,
+		fillStyle: "red",
 		fromCenter:false
 	});
 });
