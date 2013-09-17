@@ -117,9 +117,11 @@ var SCREEN_HEIGHT = 11;
 
 $(window).load(function()
 {
-	$screen = $("canvas#screen")[0];
-	$screen.width = size * SCREEN_WIDTH;
-	$screen.height = size * SCREEN_HEIGHT;
+	$canvas = $("canvas");
+	$canvas[0].width = SCREEN_WIDTH * size;
+	$canvas[0].height = SCREEN_HEIGHT * size;
+	
+	render($canvas);
 });
 
 $(window).keyup(function(event)
@@ -188,38 +190,45 @@ $(window).keyup(function(event)
 	
 	entity.move();
 	
-	$screen = $("canvas#screen");
-	$screen.clearCanvas();
+	render($("canvas"));
+});
+
+function render($canvas)
+{
+	$canvas.clearCanvas();
+	
 	for(y = 0; y < 11; y++)
 	{
 		for(x = 0; x < 16; x++)
 		{
 			if(stage[y][x] == 1)
 			{
-				$screen.drawRect(
+				$canvas.drawRect(
 				{
 					x: x*size, y: y*size,
 					width: size, height: size,
 					fillStyle: "#000",
-					fromCenter:false
+					fromCenter: false
 				});
 			}
 		}
 	}
-	$screen.drawRect(
+	
+	$canvas.drawRect(
 	{
 		x: ninja.position.x*size,
 		y: ninja.position.y*size,
 		width: size, height: size,
 		fillStyle: "green",
-		fromCenter:false
+		fromCenter: false
 	});
-	$screen.drawRect(
+	
+	$canvas.drawRect(
 	{
 		x: entity.position.x*size,
 		y: entity.position.y*size,
 		width: size, height: size,
 		fillStyle: "red",
-		fromCenter:false
+		fromCenter: false
 	});
-});
+}
