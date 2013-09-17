@@ -13,10 +13,17 @@ font-family:Calibri;
 
 canvas#screen
 {
+width:512px;
 display:block;
-margin:32px auto;
+margin:0px auto;
 border-width:2px;
 border-color:#000;
 border-style:solid;
 background-color:#EEE;
+}
+
+@media(max-width:516px)
+{
+	canvas#screen {width:99%;}
+	h1 {display:none;}
 }
