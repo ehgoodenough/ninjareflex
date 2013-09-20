@@ -217,12 +217,12 @@ function render($canvas)
 		}
 	}
 	
-	$canvas.drawRect(
+	$canvas.drawImage(
 	{
 		x: ninja.position.x*size,
 		y: ninja.position.y*size,
 		width: size, height: size,
-		fillStyle: "green",
+		source: "ninja.image.gif",
 		fromCenter: false
 	});
 	
