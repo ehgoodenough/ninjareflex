@@ -131,17 +131,20 @@ $(window).keyup(function(event)
 	{
 		ninja.moveRight();
 		ninja.moveDown();
+		ninja.jump = 0;
 	}
 	else if(event.keyCode == 65
 	|| event.keyCode == 37)
 	{
 		ninja.moveLeft();
 		ninja.moveDown();
+		ninja.jump = 0;
 	}
 	else if(event.keyCode == 83
 	|| event.keyCode == 40)
 	{
 		ninja.moveDown();
+		ninja.jump = 0;
 	}
 	else if(event.keyCode == 87
 	|| event.keyCode == 38)
