@@ -217,12 +217,14 @@ function render($canvas)
 		}
 	}
 	
+	image = "ninja.image.1.gif";
+	if(ninja.jump == 0) {image = "ninja.image.2.gif"}
 	$canvas.drawImage(
 	{
 		x: ninja.position.x*size,
 		y: ninja.position.y*size,
 		width: size, height: size,
-		source: "ninja.image.gif",
+		source: image,
 		fromCenter: false
 	});
 	
