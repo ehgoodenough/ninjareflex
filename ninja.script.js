@@ -217,23 +217,21 @@ function render($canvas)
 		}
 	}
 	
-	image = "ninja.image.1.gif";
-	if(ninja.jump == 0) {image = "ninja.image.2.gif"}
 	$canvas.drawImage(
 	{
 		x: ninja.position.x*size,
 		y: ninja.position.y*size,
 		width: size, height: size,
-		source: image,
+		source: ninja.jump > 0 ? "media/character.default.gif" : "media/character.flipped.gif",
 		fromCenter: false
 	});
 	
-	$canvas.drawRect(
+	$canvas.drawImage(
 	{
 		x: entity.position.x*size,
 		y: entity.position.y*size,
 		width: size, height: size,
-		fillStyle: "red",
+		source: "media/character.default.gif",
 		fromCenter: false
 	});
 }
